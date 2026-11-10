@@ -1,0 +1,308 @@
+/* =====================================================
+   CASE STUDY PAGE STYLES
+   (used together with style.css - nav & contact come from there)
+   Sizes come from the Figma frame (1440 wide).
+   ===================================================== */
+:root {
+  --case-heading: #c39809;      /* gold section titles */
+  --case-heading-2: #cba526;    /* gold titles of image sections */
+  --case-muted: #7a7e8b;
+  --case-line: #d9d7ae;         /* thin lines - CHANGE if the color looks off */
+}
+
+/* thin line under the nav */
+.case-page .nav { border-bottom: 1px solid var(--case-line); }
+
+.case {
+  position: relative;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding-top: 107px;
+}
+/* thin vertical lines on both sides */
+.case::before, .case::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--case-line);
+}
+.case::before { left: 96px; }
+.case::after  { right: 96px; }
+
+.case-body { padding: 0 108px; }
+
+/* ---------- text ---------- */
+.block { margin-bottom: 50px; }
+.block:first-of-type { margin-top: 48px; }
+.case-h {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 24px; line-height: 1.2;
+  color: var(--case-heading-2);
+  padding: 10px 0; margin-bottom: 4px;
+}
+.intro .case-h, .case-h.tight { color: var(--case-heading); }
+.intro .case-h { letter-spacing: .28px; }
+.case-h.tight { letter-spacing: -1.2px; }
+
+.sub { font-size: 18px; line-height: 28.8px; margin-bottom: 18px; }
+.text { font-size: 18px; line-height: 28px; max-width: 1090px; padding: 10px 0; }
+.intro .text { line-height: 28.8px; max-width: 944px; }
+
+/* ---------- intro table ---------- */
+.meta {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  max-width: 944px;
+  margin-top: 40px; padding-top: 32px;
+  border-top: 1px solid rgba(82,86,98,.1);
+  color: var(--case-muted); font-size: 13.9px; line-height: 18px; letter-spacing: .28px;
+}
+.meta div { display: flex; flex-direction: column; gap: 4px; }
+.meta .label { font-size: 14px; text-transform: uppercase; }
+
+/* ---------- frames: every size is a % of the frame width, so it scales on any screen ---------- */
+.frame {
+  position: relative; width: 100%;
+  border-radius: 20px; overflow: hidden;
+  container-type: inline-size;
+}
+.text + .frame { margin-top: 18px; }
+.frame img { position: absolute; display: block; max-width: none; }
+
+/* --- banner --- */
+.banner {
+  aspect-ratio: 1223 / 532;
+  background: linear-gradient(to bottom, #000 27.885%, #615220 100%);
+  margin-bottom: 48px;
+}
+.b-phone {
+  left: 67.5%; top: 67.1%; width: 29.84%;
+  transform: translate(-50%, -50%) rotate(22.91deg);
+  border-radius: 1.64cqw;
+  box-shadow: 0 .33cqw 1.8cqw rgba(255,255,255,.25);
+}
+.b-logo  { left: 9.65%; top: 21.6%; width: 11.3%; border-radius: .82cqw; }
+.b-title {
+  position: absolute; left: 9.65%; top: 56.4%; width: 75%;
+  font-family: 'Times New Roman', Times, serif; font-weight: 400;
+  font-size: max(3.925cqw, 17px); line-height: 1.2; color: #fff;
+}
+.b-title b { color: #feca1f; font-weight: 700; }
+
+/* --- before & after --- */
+.ba {
+  aspect-ratio: 1223 / 744;
+  background-size: cover; background-position: center;
+}
+.ba-phone { width: 21.83%; border-radius: 1.64cqw; }
+.ba-phone.before { left: 31.88%; top: 50.4%;  transform: translate(-50%, -50%) rotate(-14.56deg); }
+.ba-phone.after  { left: 67.33%; top: 50.76%; transform: translate(-50%, -50%) rotate(16.51deg); }
+.ba-arrow { left: 40.23%; top: 5.9%; width: 19.46%; }
+.ba-label {
+  position: absolute; color: #fff; white-space: nowrap;
+  font-size: max(1.96cqw, 10px); letter-spacing: -.05em;
+}
+.l-before { left: 23.5%;  top: 9.3%;  transform: translate(-50%, -50%) rotate(-14.6deg); }
+.l-after  { left: 75.74%; top: 9.7%;  transform: translate(-50%, -50%) rotate(16.85deg); }
+
+/* --- wireframe / ui screens (black rectangle + tilted group of screens) --- */
+.wire { aspect-ratio: 1223 / 596; background: #000; }
+.tilted { left: 13.57%; top: -25.34%; width: 72.79%; height: auto; }
+
+/* --- user flow --- */
+.flow { aspect-ratio: 1223 / 618; background: #000; }
+.flow-img { left: 26.66%; top: 1.78%; width: 46.6%; height: auto; }
+
+/* ---------- previous / next ---------- */
+.pager {
+  display: flex; align-items: center; justify-content: center; gap: 3px;
+  margin-top: 20px; padding: 54px 0 41px;
+  border-top: 1px solid var(--case-line);
+  font-size: 16px;
+}
+.pager span { padding: 0 10px; }
+.pager-arrow svg { display: block; width: 82px; height: 20px; transition: transform .3s; }
+.pager-arrow.prev svg { transform: scaleX(-1); }
+.pager-arrow.next:hover svg { transform: translateX(8px); }
+.pager-arrow.prev:hover svg { transform: scaleX(-1) translateX(8px); }
+
+/* =====================================================
+   TABLETS & PHONES
+   ===================================================== */
+@media (max-width: 1100px) {
+  .case::before { left: 18px; }
+  .case::after  { right: 18px; }
+  .case-body { padding: 0 30px; }
+  .meta { grid-template-columns: repeat(2, 1fr); gap: 24px 20px; }
+}
+
+@media (max-width: 700px) {
+  .case { padding-top: 80px; }
+  .case::before, .case::after { display: none; }
+  .case-body { padding: 0 16px; }
+  .frame { border-radius: 12px; }
+  .block { margin-bottom: 36px; }
+  .case-h { font-size: 20px; }
+  .sub, .text, .intro .text { font-size: 16px; line-height: 1.6; }
+  .meta { font-size: 13px; }
+  .pager-arrow svg { width: 56px; }
+}
+
+/* =====================================================
+   HEARING APP PAGE (hearing.html)
+   Backgrounds are drawn with CSS gradients. To change a color,
+   edit the hex values in the h-bg-... classes below.
+   ===================================================== */
+.hearing { --case-heading: #171717; --case-heading-2: #171717; }   /* titles are dark on this page - CHANGE if gold */
+
+/* gradient backgrounds */
+.h-bg-purple {
+  background:
+    radial-gradient(ellipse at 85% 0%,  #9b2fe0 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 100%, #1d2fe0 0%, transparent 55%),
+    linear-gradient(160deg, #1a0a70, #4a14b0 50%, #0b1a9c);
+}
+.h-bg-pink  { background: linear-gradient(180deg, #f7076a 0%, #8a0fa8 50%, #1a0cb4 100%); }
+.h-bg-dark  {
+  background:
+    radial-gradient(ellipse at 88% 55%,  rgba(225,35,95,.8) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 105%, rgba(35,35,225,.85) 0%, transparent 48%),
+    #000;
+}
+.h-bg-night {
+  background:
+    radial-gradient(ellipse at 92% 40%,  rgba(220,30,140,.75) 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 105%, rgba(30,40,230,.85) 0%, transparent 50%),
+    radial-gradient(ellipse at 5% 100%,  rgba(40,30,200,.5) 0%, transparent 45%),
+    #070735;
+}
+
+/* --- banner --- */
+.h-banner {
+  aspect-ratio: 1223 / 532; margin-bottom: 48px;
+  background:
+    radial-gradient(ellipse at 85% 110%, rgba(40,40,230,.7) 0%, transparent 55%),
+    linear-gradient(to bottom, #000 30%, #0a0a5a 100%);
+}
+.hb-phone { width: 22.2%; aspect-ratio: 267 / 594; height: auto; object-fit: cover; object-position: top center; border-radius: 1.2cqw; box-shadow: 0 0 2cqw rgba(0,0,0,.35); }
+.hb-left   { left: 22.2%; top: 41.4%; }
+.hb-right  { left: 58.4%; top: 38.4%; }
+.hb-center { left: 40.3%; top: 20.2%; z-index: 2; }
+.h-title {
+  position: absolute; left: 5.9%; top: 24%;
+  font-family: 'Times New Roman', Times, serif; font-weight: 400;
+  font-size: max(3.925cqw, 17px); line-height: 1.2; color: #fff;
+}
+
+/* --- two phones side by side (profile screen, black & white theme) --- */
+.h-two { aspect-ratio: 1223 / 745; }
+/* every phone gets the same box, so all screens show at exactly the same size */
+.h2-phone { width: 21.1%; aspect-ratio: 267 / 594; height: auto; object-fit: cover; object-position: top center; top: 10.4%; border-radius: 1.2cqw; }
+.p-left  { left: 25.8%; }
+.p-right { left: 53.4%; }
+
+/* --- wireframe --- */
+.h-wire { aspect-ratio: 1223 / 893; }
+.h-wire-img { left: 11.2%; top: 5.4%; width: 77.5%; height: auto; }
+
+/* --- design system --- */
+.h-ds { aspect-ratio: 1223 / 619; }
+.ds-font {
+  position: absolute; left: 8.4%; top: 12.5%; width: 40.7%; height: 34.3%;
+  background: #fff; color: #2563eb;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: 400; font-size: 5.2cqw; letter-spacing: .02em;   /* same font as the rest of the page */
+}
+.ds-photo { left: 51.5%; top: 12.5%; width: 40.3%; height: 34.3%; object-fit: cover; }
+.ds-swatches {
+  position: absolute; left: 8.4%; top: 53.2%; width: 40.7%; height: 34.7%;
+  display: grid; grid-template-columns: repeat(6, 1fr);
+}
+.ds-swatches span {
+  display: flex; align-items: center; justify-content: center;
+  font-size: max(.9cqw, 7px); letter-spacing: -.02em;
+}
+.ds-phone { left: 51.5%; top: 53.2%; width: 40.3%; height: 34.7%; object-fit: cover; }
+
+/* --- ui screens --- */
+.h-ui { aspect-ratio: 1223 / 914; }
+.h-ui-img { left: 13.3%; top: 8.8%; width: 73%; height: auto; }
+
+
+
+
+/* =====================================================
+   BABY CARE PAGE (baby.html)
+   ===================================================== */
+.baby { --case-heading: #2f5d27; --case-heading-2: #2f5d27; --case-line: #b6e3a0; }   /* green titles & lines - CHANGE if the color looks off */
+
+/* --- banner --- */
+.bb-banner {
+  aspect-ratio: 1223 / 531; margin-bottom: 48px;
+  background:
+    radial-gradient(ellipse at 20% 100%, rgba(20,40,120,.6) 0%, transparent 60%),
+    linear-gradient(180deg, #02050f 0%, #0a1a4a 100%);
+}
+.bb-title {
+  position: absolute; left: 7.8%; top: 31%;
+  font-family: 'Times New Roman', Times, serif; font-weight: 700;
+  font-size: max(3.925cqw, 15px); line-height: 1.18; color: #fff;
+}
+.bb-laptop { left: 42.8%; top: 15%; width: 50.4%; height: auto; }
+
+/* --- design system --- */
+.bb-ds {
+  aspect-ratio: 1223 / 616;
+  background: linear-gradient(100deg, #000 0%, #000 48%, #2f6a8a 100%);
+}
+.bs-font, .bs-logo {
+  position: absolute; top: 11.9%; height: 34.8%; background: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.bs-font {
+  left: 8.5%; width: 40.8%;
+  font-family: var(--font-body); font-weight: 400; font-size: 5.6cqw; color: #1b3a52;   /* same font as the rest of the page */
+}
+.bs-logo { left: 51.5%; width: 40.2%; }
+.bs-logo img { position: static; width: 22%; height: auto; }
+.bs-swatches {
+  position: absolute; left: 8.5%; top: 53.2%; width: 40.8%; height: 34.8%;
+  display: grid; grid-template-columns: repeat(6, 1fr);
+}
+.bs-swatches span {
+  display: flex; align-items: center; justify-content: center;
+  font-size: max(.9cqw, 7px); letter-spacing: -.02em;
+}
+.bs-bag { left: 51.5%; top: 53.2%; width: 40.2%; height: 34.8%; object-fit: cover; }
+
+/* --- phone screens --- */
+.bb-phones {
+  aspect-ratio: 1223 / 746;
+  background: linear-gradient(180deg, #000 0%, #2f6282 100%);
+}
+.bp-phone { width: 22%; aspect-ratio: 267 / 594; height: auto; object-fit: cover; object-position: top center; top: 9.9%; }
+.bp-1 { left: 10.7%; }
+.bp-2 { left: 39%; }
+.bp-3 { left: 67.5%; }
+
+/* --- interaction: laptop with a scrollable screen ---
+   Change these 4 numbers if the scrolling box does not sit exactly on the laptop screen.
+   (all are % of the laptop picture) */
+.bb-interaction {
+  aspect-ratio: 1223 / 597; background: #000;
+  --screen-left: 8.3%; --screen-top: 11%; --screen-width: 83.3%; --screen-height: 79%;
+}
+.lap { position: absolute; left: 24.7%; top: 19%; width: 50.7%; }
+.frame .lap-img { position: relative; display: block; width: 100%; height: auto; }
+.lap-screen {
+  position: absolute; z-index: 2;
+  left: var(--screen-left); top: var(--screen-top);
+  width: var(--screen-width); height: var(--screen-height);
+  overflow-x: hidden; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.5) transparent;
+  background: #4a87a6;
+}
+.frame .lap-screen img { position: static; display: block; width: 100%; height: auto; }
+.lap-screen::-webkit-scrollbar { width: 6px; }
+.lap-screen::-webkit-scrollbar-thumb { background: rgba(255,255,255,.5); border-radius: 3px; }
+
+@media (max-width: 700px) {
+  .lap { left: 8%; width: 84%; top: 14%; }
+}
