@@ -251,7 +251,7 @@ section { position: relative; }
   .about-butterfly { width: 36px; top: 20px; right: 20px; }
   .tag { font-size: 12px; } .tag img { width: 18px; }
   .tag-sketch { top: 70px; right: 14px; }
-  .tag-write  { display: none; }
+  .tag-write  { left: 30px; bottom: 100px }
   .tag-read   { right: 10px; bottom: 50px; }
   .tools-track { gap: 34px; } .tools-track img { width: 52px; height: 52px; }
 
