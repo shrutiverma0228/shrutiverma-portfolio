@@ -164,7 +164,7 @@ section { position: relative; }
 .tag { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'Kodchasan', sans-serif; font-size: 16px; }
 .tag img { width: 24px; }
 .tag-sketch { right: 48px;  top: 128px; color: #f3663e; transform: rotate(25deg); }
-.tag-write  { right: 330px; top: 285px; color: #df46aa; transform: rotate(-16deg); }
+.tag-write  { right: 20px; top: 50px; color: #df46aa; transform: rotate(-16deg); }
 .tag-read   { right: 70px;  bottom: 90px; color: #c96e70; transform: rotate(20deg); }
 
 .cloud { position: absolute; width: 220px; z-index: 5; }
